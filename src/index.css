@@ -11,9 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-user {
+  font-family: initial !important;
+  font-weight:  initial !important;
+  font-size: large;
+}
 .header{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: x-large;
-  color:darkslateblue;
+  color:black;
   font-weight: bolder;
 }
 

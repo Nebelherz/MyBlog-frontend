@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
 import postService from '../services/postService'
 
 const NewPost = (props) => {
@@ -38,7 +39,7 @@ const NewPost = (props) => {
             name="Content"
             onChange={({ target }) => setContent(target.value)} />
         </div>
-        <button type="submit">create</button>
+        <Button type="submit">create</Button>
       </form>
     </div>
   )

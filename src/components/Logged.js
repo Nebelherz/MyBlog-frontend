@@ -1,21 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import postService from '../services/postService'
+import {UserContext} from './userContext'
 
 const Logged = (props) => {
-
+  const [user, setUser] = useContext(UserContext)
   const handleLogout = () => {
-    props.setUser(null)
+    setUser(null)
     postService.setToken(null)
     window.localStorage.removeItem('loggedUser')
   }
   return(
       <div>
-        Logged in as {props.user.username}
+        Logged in as {user.username}
         <button type ="submit" onClick = {handleLogout}>
           logout 
         </button>
       </div>
   )
-}
+} 
 
 export default Logged
