@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/api/posts'
+const baseUrl = '/api/posts/'
 
 const getAll = () => {
   const request = axios.get(baseUrl)
@@ -21,4 +21,18 @@ const create = async newObject => {
   return response.data
 }
 
-export default { getAll, create, setToken }
+const put = async (id, obj) => {
+  const config = {
+    headers: { Authorization: token },
+  }
+  const response = await axios.put(baseUrl + id, obj, config)
+  return response.data
+}
+const deletePost = async id => {
+  const config = {
+    headers: { Authorization: token },
+  }
+
+  const response = await axios.delete(baseUrl + `/${id}`, config)
+}
+export default { getAll, create, setToken, deletePost, put }

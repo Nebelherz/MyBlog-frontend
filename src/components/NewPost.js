@@ -1,47 +1,66 @@
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Container, Form } from 'react-bootstrap'
 import postService from '../services/postService'
+import { useHistory } from 'react-router-dom'
 
 const NewPost = (props) => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  const history = useHistory()
 
-  const handleAdding = (event) => {
-
+  const handleAdding = async (event) => {
     event.preventDefault()
+
     const post = {
       title,
       content,
     }
 
-    postService.create(post)
-    .then(result => console.log(result))
-    .then(() => {setContent(''); setTitle('')})
-    
+    try {
+      const returnedPost = await postService.create(post)
+      console.log(returnedPost)
+      setContent(''); setTitle(''); history.push(`/posts/${returnedPost.id}`)
+    }
+    catch (e) {
+      console.log(e);
+    }
   }
 
   return (
-    <div>
-      <h2>Create new post</h2>
-      <form onSubmit={handleAdding}>
+    <Container>
+      <br />
+      <h3>Добавить статью</h3>
+      <Form onSubmit={handleAdding}>
+        <Form.Group controlId="title">
+          <Form.Label>Заголовок статьи:</Form.Label>
+          <Form.Control type="text" onChange={({ target }) => setTitle(target.value)} />
+        </Form.Group>
+
+        <Form.Group controlId='content'>
+          <Form.Label>Содержимое:</Form.Label>
+          <Form.Control as="textarea" rows={13} placeholder="Поддерживается Markdown" onChange={({ target }) => setContent(target.value)} />
+        </Form.Group>
+        <Button type="submit" variant='outline-success'>Создать</Button>
+      </Form>
+
+      {/*<form onSubmit={handleAdding}>
         <div>
           Title:
-        <input type="text"
+          <input type="text"
             value={title}
             name="Title"
             onChange={({ target }) => setTitle(target.value)} />
         </div>
         <div>
           <div>Content: </div>
-        <textarea
+          <textarea
             type="textarea"
             value={content}
             name="Content"
             onChange={({ target }) => setContent(target.value)} />
         </div>
-        <Button type="submit">create</Button>
-      </form>
-    </div>
+  </form>*/}
+    </Container>
   )
 }
 

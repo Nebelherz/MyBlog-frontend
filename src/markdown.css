@@ -1,0 +1,32 @@
+blockquote {
+  margin: 1.5em;
+  color: #231E28;
+  padding: 1em 1em 1em 2.5em;
+  position: relative;
+  background: #FAF8EB;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  }
+  blockquote:before{
+  content: "\201C";
+  font-family: Arial;
+  color: #CBDDE7;
+  font-size: 70px;
+  position: absolute;
+  left: 15px;
+  top: 1px;
+  }
+  blockquote p {
+  font-size: 1.2em;
+  margin-top: 0;  
+  }
+
+  blockquote > blockquote {
+    margin: 0;
+    padding: auto;
+  }
+
+/*
+table, th, td {
+  border: 1px solid black;
+}  */
