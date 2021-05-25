@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap'
 import { UserContext } from './userContext'
 import postService from '../services/postService'
-import { useHistory } from 'react-router'
+import { useHistory, Link } from 'react-router-dom'
 
 const Header = () => {
   const [user, setUser] = useContext(UserContext)
@@ -39,7 +39,7 @@ const Header = () => {
             Добавить пост
                   </Button>}
           {!user ?
-            <Button href="/login" variant="success">Войти</Button>
+            <Link to="/login"><Button variant="success">Войти</Button></Link>
             : <Button variant="success" type="submit" onClick={handleLogout}>Выйти</Button>
           }
         </Navbar.Collapse>

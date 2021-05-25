@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import postService from '../services/postService'
 import { UserContext } from './userContext'
-import { Redirect, useHistory, useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const EditPost = () => {
@@ -13,8 +13,8 @@ const EditPost = () => {
   const history = useHistory()
 
   useEffect(() => {
-    axios.get(axios.get(`/api/posts/${id}`).then(response => response.data)
-      .then(data => { setTitle(data.title); setContent(data.content) }))
+    axios.get(`/api/posts/${id}`).then(response => response.data)
+      .then(data => { setTitle(data.title); setContent(data.content) })
   }, [])
 
   const handleAdding = async (event) => {
