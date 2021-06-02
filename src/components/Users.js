@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { Container, Button } from 'react-bootstrap'
+import { Container, Button, Alert } from 'react-bootstrap'
 import { UserContext } from './userContext'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory} from 'react-router-dom'
 
 const Users = () => {
   const [users, setUsers] = useState()
@@ -16,7 +16,7 @@ const Users = () => {
   }, [])
 
   const handleDeletion = async (id) => {
-    console.log(id); 
+    console.log(id);
     const username = users.find(user => user.id == id).username
     if (!window.confirm(`Удалить пользователя ${username}?`)) return
     const token = 'bearer ' + user.token
@@ -27,7 +27,14 @@ const Users = () => {
     console.log(response.data);
     history.go(0)
   }
-  console.log(users);
+  if (!user || user.role !== "admin") return (
+    <Container>
+      <br />
+      <Alert variant="danger">
+        У вас недостаточно прав, чтобы просматривать эту страницу
+      </Alert>
+    </Container>
+  )
   return (
     <div>
       <br />

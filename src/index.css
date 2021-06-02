@@ -1,4 +1,3 @@
-
 .content {
   font-size: 1rem;
   line-height: 1.5;
@@ -20,7 +19,12 @@ a:hover {
    color: #5CB85C;
 }
 .nav-link {
-  color: white
+  color: white;
+  text-decoration: none;
+}
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+  color: inherit;
+  text-decoration: inherit;
 }
 .nav-user {
   font-family: initial !important;

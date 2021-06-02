@@ -25,6 +25,9 @@ const NewPost = (props) => {
       console.log(e);
     }
   }
+  const style = {
+    "height": "60vh",
+  }
 
   return (
     <Container>
@@ -33,33 +36,15 @@ const NewPost = (props) => {
       <Form onSubmit={handleAdding}>
         <Form.Group controlId="title">
           <Form.Label>Заголовок статьи:</Form.Label>
-          <Form.Control type="text" onChange={({ target }) => setTitle(target.value)} />
+          <Form.Control type="text" autoComplete="off" onChange={({ target }) => setTitle(target.value)} />
         </Form.Group>
 
         <Form.Group controlId='content'>
           <Form.Label>Содержимое:</Form.Label>
-          <Form.Control as="textarea" rows={13} placeholder="Поддерживается Markdown" onChange={({ target }) => setContent(target.value)} />
+          <Form.Control as="textarea" rows={13} style = {style} placeholder="Поддерживается Markdown" onChange={({ target }) => setContent(target.value)} />
         </Form.Group>
         <Button type="submit" variant='outline-success'>Создать</Button>
       </Form>
-
-      {/*<form onSubmit={handleAdding}>
-        <div>
-          Title:
-          <input type="text"
-            value={title}
-            name="Title"
-            onChange={({ target }) => setTitle(target.value)} />
-        </div>
-        <div>
-          <div>Content: </div>
-          <textarea
-            type="textarea"
-            value={content}
-            name="Content"
-            onChange={({ target }) => setContent(target.value)} />
-        </div>
-  </form>*/}
     </Container>
   )
 }

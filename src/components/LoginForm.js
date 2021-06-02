@@ -39,12 +39,6 @@ const LoginForm = () => {
     }
 
   }
-  const showAlert = {
-    "opacity": "100",
-  }
-  const hideAlert = {
-    "opacity": "0",
-  }
 
   return (
     <Container>

@@ -31,6 +31,9 @@ const App = () => {
       <Container >
         <Header />
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/posts/:id" >
             <SinglePost />
           </Route>
@@ -46,14 +49,8 @@ const App = () => {
           <Route exact path="/users" >
             <Users />
           </Route>
-         {/* <Route exact path = "/users/:id">
-
-          </Route> */}
           <Route path='/newpost'>
             <NewPost />
-          </Route>
-          <Route exact path="/">
-            <Home />
           </Route>
           <Route>
             <Page404 />
