@@ -21,11 +21,11 @@ const Header = () => {
   return (
     <div>
       <Navbar bg="nav" variant="dark" expand="lg">
-        <Navbar.Brand><Link to='/' className='link-unstyled'>Стандарты W3C</Link></Navbar.Brand>
+        <Navbar.Brand><Link to='/' className='link-unstyled'>Myblog</Link></Navbar.Brand>
         {user && user.role === "admin" && <Nav.Link ><Link to='/users' className="nav-link">Пользователи</Link></Nav.Link>}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+       { <Navbar.Toggle aria-controls="basic-navbar-nav" />}
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          {user && <Navbar.Text>{user.username}</Navbar.Text>}
+          {user && <Navbar.Text><Link className='link-unstyled' to={`/users/${user.id}`}>{user.username}</Link></Navbar.Text>}
           {user &&
             <Link to='/newpost'>
               <Button variant="success">

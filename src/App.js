@@ -11,6 +11,7 @@ import SinglePost from "./components/SinglePost"
 import EditPost from "./components/EditPost"
 import Users from './components/Users'
 import Register from './components/Register'
+import {User} from './components/User'
 import Page404 from './components/Page404'
 
 
@@ -48,6 +49,9 @@ const App = () => {
           </Route>
           <Route exact path="/users" >
             <Users />
+          </Route>
+          <Route exact path="/users/:id" >
+            <User/>
           </Route>
           <Route path='/newpost'>
             <NewPost />

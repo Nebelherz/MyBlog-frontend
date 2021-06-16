@@ -48,7 +48,6 @@ const LoginForm = () => {
       <Form onSubmit={handleLogin}>
         <div className='text-center'>Нет аккаунта? <Link to='/register'>Создать.</Link></div>
         {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-        {/*<Alert variant="danger" style={errorMessage ? showAlert : hideAlert}>{errorMessage}</Alert>*/}
         <Form.Group controlId="username">
           <Form.Label>Имя пользователя</Form.Label>
           <Form.Control placeholder="username" onChange={({ target }) => setUsername(target.value)} />

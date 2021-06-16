@@ -56,8 +56,7 @@ const SinglePost = () => {
             </Button>
           </div>}
       </div>
-      <div><em>{post.author.username}</em></div>
-      {/*<div>{post.content}</div>*/}
+      <div><Link to={`/users/${post.author.id}`}>{post.author.username}</Link></div>
       <div className="content" dangerouslySetInnerHTML={getRawMarkup()}></div>
     </Container >
   )
