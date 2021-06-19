@@ -17,7 +17,7 @@ const Register = () => {
     event.preventDefault()
 
     setErrorMessage('')
-    if (username == '') {
+    if (username === '') {
       setErrorMessage('Введите имя пользователя')
       return
     }

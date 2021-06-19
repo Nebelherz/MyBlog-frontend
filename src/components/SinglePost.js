@@ -28,11 +28,8 @@ const SinglePost = () => {
     await postService.deletePost(post.id)
     history.push('/')
   }
-  const hStyle = {
-    width: "55%",
-  };
+
   if (post === null) return (<></>)
-  
   return (
     <Container>
       <br />
@@ -56,7 +53,7 @@ const SinglePost = () => {
             </Button>
           </div>}
       </div>
-      <div><Link to={`/users/${post.author.id}`}>{post.author.username}</Link></div>
+      <div><Link to={`/users/${post.author.id}`} style={{textDecoration: "none",}} ><h5>{post.author.username}</h5></Link></div>
       <div className="content" dangerouslySetInnerHTML={getRawMarkup()}></div>
     </Container >
   )

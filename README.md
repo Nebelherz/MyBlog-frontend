@@ -1,8 +1,8 @@
 ## Это фронтенд небольшого блога на React
 
-Работающий вариант можно посмотреть [здесь](https://murmuring-reef-97697.herokuapp.com/)
+Работающий вариант можно посмотреть [здесь](https://murmuring-reef-97697.herokuapp.com/).
 
-* Фронтенд сделан на React, с применением React-bootstrap для UI.
+* Фронтенд сделан на React, с применением React-Bootstrap для UI.
 * В качестве сервера используется node.js с Express и MongoDB.
 
 ### На данный момент доступно:

@@ -50,7 +50,7 @@ const App = () => {
           <Route exact path="/users" >
             <Users />
           </Route>
-          <Route exact path="/users/:id" >
+          <Route path="/users/:id" >
             <User/>
           </Route>
           <Route path='/newpost'>

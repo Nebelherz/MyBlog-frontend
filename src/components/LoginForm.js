@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Form, Alert, Container } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import loginService from '../services/login'

@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import Post from './Post'
 import postsService from '../services/postService'
-import { UserContext } from './userContext'
 import { Container } from 'react-bootstrap'
-import { Switch, Route } from "react-router-dom";
 
 const Home = () => {
   const [posts, setPosts] = useState([])
-  const [user, setUser] = useContext(UserContext)
 
   useEffect(() => {
     postsService.getAll().then(posts =>

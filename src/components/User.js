@@ -7,20 +7,20 @@ import { Container } from 'react-bootstrap'
 
 export const User = () => {
   const [AuthenticadedUser] = useContext(UserContext)
-  const [user, setUser] = useState()
-  const [posts, setPosts] = useState()
+  const [user, setUser] = useState('')
+  const [posts, setPosts] = useState([])
   const id = useParams().id
   const history = useHistory()
 
   useEffect(()=> {
     axios.get('/api/users/'+id).then(response => response.data).then(user => {setUser(user); setPosts(user.posts); console.log(user);})
-  }, [])
-
+  }, [id])
+  
   return(
     <Container>
       <br/>
-      <h2>{user?.username}{AuthenticadedUser?.id ===user?.id && ' \u2728'}</h2>
-      {posts?.map(post =>
+      <h2>{user?.username}{AuthenticadedUser && (AuthenticadedUser.id === user.id) && '\uD83D\uDE00'}</h2>
+      {posts.map(post =>
         <Post key={post.id} post={post} />
       )}
     </Container>
